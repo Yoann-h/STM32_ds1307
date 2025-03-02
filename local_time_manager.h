@@ -13,7 +13,6 @@
 typedef struct {
 	TIM_HandleTypeDef* baseTimer;
 	uint32_t u32LocalTime;
-	uint8_t u8Hplus1;
 }ts_ltm;
 
 typedef enum

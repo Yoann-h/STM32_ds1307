@@ -15,7 +15,6 @@ eLtmRet LtmInit(TIM_HandleTypeDef* htime)
 {
 	eLtmRet eRet = ltm_error;
 	LocalTime.u32LocalTime = 0;
-	LocalTime.u8Hplus1=1;
 	if(ltm_verifTimer(htime)*100==(htime->Instance->PSC +1)*1000000 && htime->Instance->ARR==10000){
 		LocalTime.baseTimer = htime;
 		eRet = ltm_success;
@@ -79,11 +78,6 @@ eLtmRet ltm_UnixToDateTime(uint32_t u32UnixTime, sRTCDateTime* dateResult)
 	    uint32_t e;
 	    uint32_t f;
 
-
-	    if(LocalTime.u8Hplus1==1)
-	    {
-	    	u32UnixTime+=3600U;
-	    }
 	    //Retrieve hours, minutes and seconds
 	    dateResult->u8second = u32UnixTime % 60;
 	    u32UnixTime /= 60;

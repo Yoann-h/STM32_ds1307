@@ -645,7 +645,7 @@ uint32_t unixtime(void)
     uint32_t u;
 
     u = time2long(date2days(t.u16year, t.u8month, t.u8day), t.u8hour, t.u8minute, t.u8second);
-    u += 946681200;
+    u += 946681200+3600;
 
     return u;
 }
